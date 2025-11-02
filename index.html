@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CathoLink</title>
+
+    <meta name="description" content="QR Code and Scanner App for Catholic Schools" />
+    <meta name="author" content="CathoLink Team" />
+
+    <!-- ✅ PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- ✅ Register Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(() => console.log("✅ Service Worker registered"))
+            .catch((err) => console.error("❌ Service Worker failed:", err));
+        });
+      }
+    </script>
+
+    <!-- Open Graph (optional) -->
+    <meta property="og:title" content="CathoLink - QR Attendance App" />
+    <meta property="og:description" content="A Catholic-themed QR Code attendance system" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/" />
+
+    <!-- Twitter (optional) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CathoLink" />
+    <meta name="twitter:description" content="QR Code attendance and scanner app" />
+    <meta name="twitter:image" content="/" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- React Entry Point -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
